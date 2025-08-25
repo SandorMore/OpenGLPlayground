@@ -1,12 +1,20 @@
 #include <GLFW/glfw3.h>
 
+void DrawTrinagle() {
+	glBegin(GL_TRIANGLES);
+	glVertex2f(-0.5f, -0.5f);
+	glVertex2f(0.0f, 0.5f);
+	glVertex2f(0.5f, -0.5f);
+	glEnd();
+}
+
 int main() {
 	GLFWwindow* window;
 
 	if (!glfwInit())
 		return -1;
 
-	window = glfwCreateWindow(640, 480, "Learning", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Window 1", nullptr, nullptr);
 	if (!window) {
 		glfwTerminate();
 		return -1;
@@ -16,11 +24,7 @@ int main() {
 	
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT);
-		glBegin(GL_TRIANGLES);
-		glVertex2f(-0.5f, -0.5f);
-		glVertex2f(0.0f, 0.5f);
-		glVertex2f(0.5f, -0.5f);
-		glEnd();
+		DrawTrinagle();
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
